@@ -2,3 +2,4 @@ venv/
 .idea/
 image-sets/video-source/video.mp4
 image-sets/video-source/video_clip.mp4
+*/*.docx
