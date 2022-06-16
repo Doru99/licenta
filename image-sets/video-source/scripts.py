@@ -26,10 +26,6 @@ def split_frames(num):
         count += 1
 
 
-def hello(msg="hello"):
-    print(msg)
-
-
 if __name__ == '__main__':
     if sys.argv[1] == 'download':
         globals()[sys.argv[1]](sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6])
