@@ -50,6 +50,8 @@ def select_file():
 def select_dir():
     folder = fd.askdirectory()
     file_list = list(Path(folder).glob('*.jpg'))
+    btn_next['state'] = 'normal'
+    btn_prev['state'] = 'normal'
     try:
         files.delete(files.get_children())
     except:
@@ -100,12 +102,14 @@ btn_upl_dir = Button(window, text="Choose dir", image=image_upl_dir, compound="t
 btn_upl_dir.grid(row=2, rowspan=2, padx=15, pady=5)
 
 image_next = ImageTk.PhotoImage(Image.open("../images/next.png"))
-btn_upl_next = Button(window, text="Next image", image=image_next, compound="top", command=next_image)
-btn_upl_next.grid(row=4, rowspan=2, padx=15, pady=5)
+btn_next = Button(window, text="Next image", image=image_next, compound="top", command=next_image)
+btn_next['state'] = 'disabled'
+btn_next.grid(row=4, rowspan=2, padx=15, pady=5)
 
 image_prev = ImageTk.PhotoImage(Image.open("../images/prev.png"))
-btn_upl_next = Button(window, text="Previous file", image=image_prev, compound="top", command=prev_image)
-btn_upl_next.grid(row=6, rowspan=2, padx=15, pady=5)
+btn_prev = Button(window, text="Previous image", image=image_prev, compound="top", command=prev_image)
+btn_prev['state'] = 'disabled'
+btn_prev.grid(row=6, rowspan=2, padx=15, pady=5)
 
 btn_start = Button(window, text="Start")
 btn_start.grid(row=6, column=1, columnspan=2)
