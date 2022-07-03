@@ -1,5 +1,4 @@
 import os
-import glob
 from src.Counter import Counter
 from pathlib import Path
 from tkinter import *
@@ -93,12 +92,17 @@ def prev_image():
     set_image(path=path)
 
 
+def start_detect():
+    im = Image.open('../exemplu_22.jpg')
+    im.show()
+
+
 image_upl_one = ImageTk.PhotoImage(Image.open("../images/file.png"))
 btn_upl_one = Button(window, text="Choose file", image=image_upl_one, compound="top", command=select_file)
 btn_upl_one.grid(row=0, rowspan=2, padx=15, pady=5)
 
 image_upl_dir = ImageTk.PhotoImage(Image.open("../images/folder.png"))
-btn_upl_dir = Button(window, text="Choose dir", image=image_upl_dir, compound="top", command=select_dir)
+btn_upl_dir = Button(window, text="Choose directory", image=image_upl_dir, compound="top", command=select_dir)
 btn_upl_dir.grid(row=2, rowspan=2, padx=15, pady=5)
 
 image_next = ImageTk.PhotoImage(Image.open("../images/next.png"))
@@ -111,7 +115,7 @@ btn_prev = Button(window, text="Previous image", image=image_prev, compound="top
 btn_prev['state'] = 'disabled'
 btn_prev.grid(row=6, rowspan=2, padx=15, pady=5)
 
-btn_start = Button(window, text="Start")
+btn_start = Button(window, text="Start", command=start_detect)
 btn_start.grid(row=6, column=1, columnspan=2)
 
 label_count = Label(window, text="Count: 0")
